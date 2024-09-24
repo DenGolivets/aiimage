@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import { Loader } from 'lucide-react';
@@ -42,7 +42,7 @@ export default function Header() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild className='flex gap-3 justify-center items-center'>
             <Avatar className='cursor-pointer flex justify-center items-center mr-8'>
-              {!session && sessionStatus !== 'loading' ? (
+              {!session && sessionStatus !== loading ? (
                 <Button disabled className='flex justify-center items-center bg-black h-full'>
                   <Loader className="animate-spin flex justify-center items-center text-white" />
                 </Button>
@@ -50,7 +50,10 @@ export default function Header() {
                 session &&
                 session.user &&
                 session.user.image ? (
-                  <AvatarImage src={session.user.image} />
+                  <>
+                    <AvatarImage src={session.user.image} />
+                    <AvatarFallback>LOGO</AvatarFallback>
+                  </>
                 ) : (
                 <Button disabled className='flex justify-center items-center h-full bg-black'>
                   <Loader className="animate-spin flex justify-center items-center text-white" />
