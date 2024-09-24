@@ -73,16 +73,16 @@ export default function CreatePage() {
   }
 
   return (
-    <div className="w-full h-dvh p-3 flex justify-start items-center pt-[72px] flex-col">
+    <div className="w-full min-h-dvh h-full lg:h-dvh p-3 flex justify-start items-center pt-[72px] flex-col">
       <div className="w-full p-3">
         <h1 className="text-center font-bold text-white text-4xl">Create</h1>
         <p className="text-white/60 text-lg text-center">
           Generate Amazing Images from Text using AI Models for Free
         </p>
       </div>
-      <div className="flex w-full h-full gap-3">
-        <div className="__form flex-[2] gap-2 flex justify-center items-start flex-col">
-          <p className="text-left text-sm text-white/80">
+      <div className="flex w-full h-[calc(100vh-200px)] gap-3 md:flex-row flex-col">
+        <div className="__form h-full flex-[2] gap-2 flex justify-center items-start flex-col">
+          <p className="text-center lg:text-left text-sm text-white/80 w-full">
             Type your prompt below to create any image
           </p>
           <div className="flex gap-2 w-full">
@@ -95,7 +95,7 @@ export default function CreatePage() {
                   control={form.control}
                   name="prompt"
                   render={({ field }) => (
-                    <FormItem className="w-full max-w-[70%]">
+                    <FormItem className="w-full lg:max-w-[70%] max-w-full">
                       <FormControl>
                         <Input
                           placeholder="a cat sitting on a bench."
@@ -133,14 +133,14 @@ export default function CreatePage() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="__output flex-[1] bg-white/5 rounded-lg relative overflow-hidden">
+        <div className="__output min-h-[300px] lg:min-h-full lg:h-full flex-[1] bg-white/5 flex items-center justify-center rounded-lg relative overflow-hidden">
           {outputImg ? (
             <Image
               src={outputImg}
               alt=""
               width={500}
               height={500}
-              className="w-full h-full object-contain"
+              className="w-[600px] h-[500px] lg:w-full lg:h-full object-contain"
             />
           ) : (
             <>

@@ -50,7 +50,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="w-full min-h-dvh p-3 pt-[72px] grid grid-cols-4 gap-y-6 gap-x-6 mb-6" key={posts.length}>
+    <div className="w-full min-h-dvh p-3 pt-[72px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-y-6 gap-x-6 mb-6" key={posts.length}>
       {loading ? (
         <div className="col-span-full flex justify-center items-center">
           <Loader
@@ -74,12 +74,12 @@ export default function ProfilePage() {
                   alt={post.prompt}
                   width={350}
                   height={250}
-                  className="object-cover w-full h-[500px] rounded-md"
+                  className="object-cover w-full h-[250px] md:h-[300px] lg:h-[400px] 2xl:h-[500px] rounded-md"
                 />
                 <p className="text-white/80 text-base mt-2 capitalize">
                   {post.prompt}
                 </p>
-                <div className="flex items-center justify-between mt-2">
+                <div className="flex flex-col xl:flex-row items-center justify-between mt-2 gap-2">
                   <a
                     href={post.url}
                     download={`image-${post.prompt}.jpg`}
@@ -93,7 +93,7 @@ export default function ProfilePage() {
                     onClick={() =>
                       downloadImage(post.url, `image-${post.prompt}.jpg`)
                     }
-                    className="inline-flex items-center justify-center ml-14 text-white bg-orange-600 hover:bg-orange-700 transition-all duration-300 font-semibold rounded-md px-4 py-2"
+                    className="inline-flex 2xl:ml-14 items-center justify-between ml-0 text-white bg-orange-600 hover:bg-orange-700 transition-all duration-300 font-semibold rounded-md px-4 py-2"
                   >
                     Download
                   </button>
