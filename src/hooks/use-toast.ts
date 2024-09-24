@@ -32,8 +32,6 @@ function genId() {
   return count.toString()
 }
 
-type ActionType = keyof typeof ActionTypes
-
 type Action =
   | {
       type: typeof ActionTypes["ADD_TOAST"]
