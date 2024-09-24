@@ -25,9 +25,12 @@ export default function Header() {
   }
 
   return (
-    <div className='fixed top-0 w-full h-[60px] bg-black border-b border-white/60 p-3 flex justify-between items-center'>
+    <div className='fixed z-50 top-0 w-full h-[60px] bg-black border-b border-white/60 p-3 flex justify-between items-center'>
       <Link href={"/"}>
         <h2 className='font-bold text-xl'>AI Generate</h2>
+      </Link>
+      <Link href={"/create"} className='ml-[1500px] font-bold text-xl hover:text-white/70 transition-all duration-300'>
+        Create
       </Link>
       {!session && sessionStatus !== 'loading' ? (
         <div className="__menu">
@@ -37,7 +40,7 @@ export default function Header() {
         </div>
       ) : (
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger asChild className='flex gap-3 justify-center items-center'>
             <Avatar className='cursor-pointer flex justify-center items-center mr-8'>
               {!session && sessionStatus !== 'loading' ? (
                 <Button disabled className='flex justify-center items-center bg-black h-full'>
@@ -57,7 +60,10 @@ export default function Header() {
             </Avatar>
           </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className='mt-2'>
-              <DropdownMenuItem onClick={handlSignOut}>
+              <DropdownMenuItem className='cursor-pointer'>
+                <Link href="/profile">Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handlSignOut} className='focus:bg-red-500 cursor-pointer'>
                 Logout
               </DropdownMenuItem>
             </DropdownMenuContent> 
