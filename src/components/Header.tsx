@@ -34,8 +34,8 @@ export default function Header() {
       </Link>
       {!session && sessionStatus !== 'loading' ? (
         <div className="__menu">
-          <Button onClick={handleSignIn}>
-            Login
+          <Button onClick={handleSignIn} disabled={loading}>
+            {loading ? <Loader className="animate-spin" /> : "Login"}
           </Button>
         </div>
       ) : (
