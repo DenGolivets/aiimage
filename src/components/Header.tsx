@@ -42,7 +42,7 @@ export default function Header() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild className='flex gap-3 justify-center items-center'>
             <Avatar className='cursor-pointer flex justify-center items-center mr-8'>
-              {!session && sessionStatus !== loading ? (
+              {!session && sessionStatus !== 'loading' ? (
                 <Button disabled className='flex justify-center items-center bg-black h-full'>
                   <Loader className="animate-spin flex justify-center items-center text-white" />
                 </Button>
